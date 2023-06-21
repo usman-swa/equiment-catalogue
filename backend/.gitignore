@@ -1,11 +1,17 @@
+# Directories
 /dist
 /tmp
 /out-tsc
 /bazel-out
 
+# Node.js dependencies
+/node_modules
+
+# Logs
 npm-debug.log
 yarn-error.log
 
+# IDEs
 .idea/
 .project
 .classpath
@@ -13,14 +19,18 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
-
 .vscode/*
+
+# VSCode workspace settings
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# History
 .history/*
 
+# Angular specific files
 /.angular/cache
 .sass-cache/
 /connect.lock
@@ -29,5 +39,6 @@ yarn-error.log
 testem.log
 /typings
 
+# System generated files
 .DS_Store
 Thumbs.db
