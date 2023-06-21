@@ -1,0 +1,11 @@
+<form (ngSubmit)="onSubmit()">
+  <label for="searchNumber">Enter a number:</label>
+  <input type="number" id="searchNumber" [(ngModel)]="searchNumber" name="searchNumber">
+  <button type="submit">Search</button>
+</form>
+
+<div *ngIf="searchResult">
+  <h2>Search Result</h2>
+  <p>{{ searchResult }}</p>
+</div>
+
