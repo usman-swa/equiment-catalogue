@@ -1,0 +1,5 @@
+data: Data[] = [
+    { number: 123, address: '', startDate: '', endDate: '', status: Status.Running },
+    { number: 456, address: '', startDate: '', endDate: '', status: Status.Stopped },
+    { number: 789, address: '', startDate: '', endDate: '', status: Status.Running },
+];

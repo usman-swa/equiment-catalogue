@@ -11,7 +11,7 @@ export class SearchService {
   constructor(private http: HttpClient) { }
 
   searchByNumber(number: number): Observable<any> {
-    const url = `${this.apiUrl}/search?number=${number}`;
+    const url = `${this.apiUrl}/equipment/search?limit=${number}`;
     return this.http.get(url);
   }
 }

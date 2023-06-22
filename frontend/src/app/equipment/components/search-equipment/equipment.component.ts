@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { SearchService } from '../core/services';
-import { Data } from '../core/interfaces/equipment';
 import { MatTableDataSource } from '@angular/material/table';
+import { Data } from '@angular/router';
+import { SearchService } from 'src/app/core/services';
 
 @Component({
   selector: 'app-equipment',
