@@ -12,7 +12,7 @@ enum Status {
 	Stopped = 'Stopped',
 }
 
-interface Data {
+export interface Data {
 	number: number;
 	address: string;
 	startDate: string;
