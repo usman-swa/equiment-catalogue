@@ -7,6 +7,13 @@ import { FrontpageComponent } from './frontpage/frontpage.component';
 import { FormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
 import { EquipmentComponent } from './equipment/equipment.component';
+import { CommonModule } from '@angular/common';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -18,7 +25,14 @@ import { EquipmentComponent } from './equipment/equipment.component';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    FormsModule
+    CommonModule,
+    FormsModule,
+    MatTableModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
