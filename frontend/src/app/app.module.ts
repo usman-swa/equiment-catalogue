@@ -13,7 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSortModule } from '@angular/material/sort';
-import { EquipmentComponent, ListEquipmentsComponent } from './equipment';
+import { ListEquipmentsComponent } from './equipment';
 import { FrontpageComponent } from './frontpage';
 
 @NgModule({

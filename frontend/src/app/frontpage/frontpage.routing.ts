@@ -4,6 +4,11 @@ import { FrontpageComponent } from './components/frontpage';
 
 export const FrontpageRouting: ModuleWithProviders<RouterModule> = RouterModule.forChild([
     {
+        path: 'equipment',
+        component: FrontpageComponent,
+        pathMatch: 'full',
+    },
+    {
         path: '',
         component: FrontpageComponent,
         pathMatch: 'full',

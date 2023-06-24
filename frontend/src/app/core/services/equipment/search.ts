@@ -16,7 +16,7 @@ export class SearchService {
   }
 
   getByNumber(number: number): Observable<any> {
-    const url = `${this.apiUrl}/equipment/search/${number}`;
+    const url = `${this.apiUrl}/equipment/${number}`;
     return this.http.get(url);
   }
 }
