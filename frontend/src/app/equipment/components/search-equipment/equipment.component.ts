@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute, Data } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Equipment } from 'src/app/core/models/equipment';
 import { SearchService } from 'src/app/core/services';
 
 @Component({
@@ -9,23 +10,26 @@ import { SearchService } from 'src/app/core/services';
   styleUrls: ['./equipment.component.scss']
 })
 export class EquipmentComponent implements OnInit {
-  searchNumber: number = 123;
-  searchResult: Data | null = null;
-  dataSource: MatTableDataSource<Data> = new MatTableDataSource<Data>([]);
-  displayedColumns: string[] = ['number', 'status', 'address'];
+  readonly displayedColumns = ['number', 'status', 'address'];
+  dataSource = new MatTableDataSource<Equipment>([]);
+  private equipmentId!: number;
 
-  constructor(private searchService: SearchService, private activatedRoute: ActivatedRoute) {}
+  constructor(private equipmentService: SearchService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    const equipmentIdParam = this.activatedRoute.snapshot.paramMap.get('equipmentId');
-const equipmentId = equipmentIdParam ? parseInt(equipmentIdParam) : 0;
+    this.activatedRoute.params.subscribe((params) => {
+      this.equipmentId = parseInt(params['equipmentId'], 10);
+      this.loadEquipment(this.equipmentId);
+    });
+  }
 
-    this.searchService.getByNumber(equipmentId).subscribe(
-      (result: Data) => {
-        this.searchResult = result;
-        this.dataSource.data = [...this.dataSource.data, result];
+  private loadEquipment(equipmentId: number): void {
+    this.equipmentService.getByNumber(equipmentId).subscribe(
+      (equipment) => {
+        this.dataSource.data = [...equipment];
+        console.log(this.dataSource.data);
       },
       (error: any) => console.log('Error:', error)
     );
-}
+  }
 }

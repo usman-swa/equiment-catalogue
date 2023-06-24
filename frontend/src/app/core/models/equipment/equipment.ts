@@ -3,7 +3,7 @@ enum Status {
 	Stopped = 'Stopped',
 }
 
-export interface Data {
+export interface Equipment {
 	number: number;
 	address: string;
 	startDate: string;
