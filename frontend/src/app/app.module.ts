@@ -20,7 +20,6 @@ import { FrontpageComponent } from './frontpage';
   declarations: [
     AppComponent,
     FrontpageComponent,
-    EquipmentComponent,
     ListEquipmentsComponent
   ],
   imports: [

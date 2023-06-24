@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Data } from '@angular/router';
+import { ActivatedRoute, Data, Router } from '@angular/router';
 import { SearchService } from 'src/app/core/services';
 
 @Component({
@@ -14,7 +14,7 @@ export class ListEquipmentsComponent {
   dataSource: MatTableDataSource<Data> = new MatTableDataSource<Data>();
   displayedColumns: string[] = ['number', 'status', 'address'];
 
-  constructor(private searchService: SearchService) {}
+  constructor(private searchService: SearchService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   onSubmit(): void {
     if (!this.searchNumber) {
@@ -28,5 +28,12 @@ export class ListEquipmentsComponent {
       },
       (error: any) => console.log('Error:', error)
     );
+  }
+
+  goToAssessAssignment(equipmentId: number): void {
+    //current route is /equipment/search
+    this.router.navigate([equipmentId], {
+      relativeTo: this.activatedRoute,
+    }).catch(error => console.error(error));
   }
 }

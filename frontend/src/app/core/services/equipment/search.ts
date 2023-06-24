@@ -14,4 +14,9 @@ export class SearchService {
     const url = `${this.apiUrl}/equipment/search?limit=${number}`;
     return this.http.get(url);
   }
+
+  getByNumber(number: number): Observable<any> {
+    const url = `${this.apiUrl}/equipment/search/${number}`;
+    return this.http.get(url);
+  }
 }
