@@ -29,11 +29,4 @@ export class ListEquipmentsComponent {
       (error: any) => console.log('Error:', error)
     );
   }
-
-  goToAssessAssignment(equipmentId: number): void {
-    //current route is /equipment/search
-    this.router.navigate([equipmentId], {
-      relativeTo: this.activatedRoute,
-    }).catch(error => console.error(error));
-  }
 }
