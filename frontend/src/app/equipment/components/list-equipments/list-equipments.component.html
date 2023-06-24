@@ -46,7 +46,7 @@
       {{column | titlecase}}
     </th>
     <td mat-cell *matCellDef="let element">
-      <a mat-button routerLink="/equipment/search/123">{{element[column]}}</a>
+      <a mat-button [routerLink]="['equipment/search', element[column]]">{{element[column]}}</a>
     </td>
   </ng-container>
 
