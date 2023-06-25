@@ -7,11 +7,11 @@ import { of } from 'rxjs';
 import { SearchService } from 'src/app/core/services';
 
 @Component({
-  selector: 'app-equipment',
-  templateUrl: './equipment.component.html',
-  styleUrls: ['./equipment.component.scss']
+  selector: 'app-equipment-details',
+  templateUrl: './equipment-details.component.html',
+  styleUrls: ['./equipment-details.component.scss']
 })
-export class EquipmentComponent implements OnInit {
+export class EquipmentDetailsComponent implements OnInit {
   displayedColumns: Array<string> = ['number', 'status', 'address'];
   dataSource: MatTableDataSource<Equipment> = new MatTableDataSource<Equipment>();
   equipmentId!: number;
