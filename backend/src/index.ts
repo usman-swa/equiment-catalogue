@@ -8,25 +8,28 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
-function validateNumber(req: Request): number {
-  const numberParam = req.query.number as string;
-  if (!numberParam || isNaN(Number(numberParam))) {
-    throw new Error('number must be a valid number');
+const validateNumber = (num: string | undefined): number => {
+  const numberParam = num ? parseInt(num, 10) : NaN;
+  if (isNaN(numberParam)) {
+    throw new Error('Number must be a valid number');
   }
-  return Number(numberParam);
-}
+  return numberParam;
+};
 
-function searchData(equipmentNumber?: number, limit = 10): Equipment[] {
-  const result = data.filter(item => !equipmentNumber || item.number === equipmentNumber);
+const searchData = (eqNum?: number, limit = 10): Equipment[] => {
+  let result = data;
+  if (eqNum) {
+    result = result.filter((item) => item.number === eqNum);
+  }
   if (!result.length) {
     throw new Error('Data not found');
   }
   return result.slice(0, limit);
-}
+};
 
 app.get('/equipment/search', (req: Request, res: Response, next: NextFunction) => {
   try {
-    const limit = parseInt(req.query.limit as string, 10) || 10;
+    const limit = validateNumber(req.query.limit as string);
     const result = searchData(undefined, limit);
     res.json(result);
   } catch (error) {
@@ -36,17 +39,31 @@ app.get('/equipment/search', (req: Request, res: Response, next: NextFunction) =
 
 app.get('/equipment/:equipmentNumber', (req: Request, res: Response, next: NextFunction) => {
   try {
-    const equipmentNumber = parseInt(req.params.equipmentNumber as string, 10);
-    const result = searchData(equipmentNumber);
-    res.json(...result);
+    const equipmentNumber = validateNumber(req.params.equipmentNumber as string);
+    const result = searchData(equipmentNumber, 1)[0] ?? null;
+    res.json(result);
   } catch (error) {
     next(error);
   }
 });
 
-app.use((err: any, req: Request, res: Response, next: any) => {
+app.post('/equipment', (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const newEquipment: Equipment = req.body;
+    const existingEquipment = data.find((equipment) => equipment.number === newEquipment.number);
+    if (existingEquipment) {
+      throw new Error('Equipment already exists');
+    }
+    data.push(newEquipment);
+    res.json(newEquipment);
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error(err.stack);
-  res.status(err.status || 500).send({message: err.message || 'Internal server error'});
+  res.status(500).send({ message: 'Internal server error' });
 });
 
 app.listen(port, () => {

@@ -1,1 +1,1 @@
-export * from './equipment/search';
+export * from './equipment/equipment';
