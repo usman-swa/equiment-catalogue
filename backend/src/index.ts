@@ -12,12 +12,12 @@ enum Status {
   Stopped = 'Stopped',
 }
 
-interface Data {
+interface Equipment {
   number: number;
   status: Status;
 }
 
-const data: Data[] = [
+const data: Equipment[] = [
   { number: 123, status: Status.Running },
   { number: 456, status: Status.Stopped },
   { number: 789, status: Status.Running },
@@ -38,7 +38,7 @@ function validateNumber(req: Request): number {
   return Number(numberParam);
 }
 
-function searchData(equipmentNumber?: number, limit = 10): Data[] {
+function searchData(equipmentNumber?: number, limit = 10): Equipment[] {
   const result = data.filter(item => !equipmentNumber || item.number === equipmentNumber);
   if (!result.length) {
     throw new Error('Data not found');
@@ -60,7 +60,7 @@ app.get('/equipment/:equipmentNumber', (req: Request, res: Response, next: NextF
   try {
     const equipmentNumber = parseInt(req.params.equipmentNumber as string, 10);
     const result = searchData(equipmentNumber);
-    res.json(result);
+    res.json(...result);
   } catch (error) {
     next(error);
   }
