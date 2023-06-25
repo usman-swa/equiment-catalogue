@@ -6,7 +6,7 @@ enum Status {
 export interface Equipment {
 	number: number;
 	address: string;
-	startDate: string;
-	endDate: string;
+	contractStartDate: string;
+	contractEndDate: string;
 	status: Status;
 }
