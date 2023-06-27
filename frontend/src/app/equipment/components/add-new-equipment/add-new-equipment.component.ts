@@ -44,10 +44,10 @@ export class AddNewEquipmentComponent implements OnInit {
   createEquipmentForm(): void {
     this.equipmentForm = this.formBuilder.group({
       number: [null, Validators.required],
-      address: [''],
-      contractStartDate: [''],
-      contractEndDate: [''],
-      status: [Status],
+      address: ['', Validators.required],
+      contractStartDate: ['', Validators.required],
+      contractEndDate: ['', Validators.required],
+      status: [Status.Running, Validators.required],
     });
   }
 }
