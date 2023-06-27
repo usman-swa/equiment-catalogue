@@ -1,35 +1,23 @@
 <app-list-equipments [dataSource]="dataSource"></app-list-equipments>
- <!-- Search form -->
- <form class="search-form"
- #searchForm="ngForm"
- (ngSubmit)="onSubmit()"
- novalidate
->
+<!-- Search form -->
+<form class="search-form" #searchForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
 
- <mat-form-field [appearance]="'outline'" class="input-number">
-   <!-- Label for form input -->
-   <label>Enter a number:</label>
+  <mat-form-field [appearance]="'outline'" class="input-number">
+    <!-- Label for form input -->
+    <label>Enter a number:</label>
 
-   <!-- Input field for searching -->
-   <input matInput
-         type="number"
-         id="searchNumber"
-         name="searchNumber"
-         [(ngModel)]="searchNumber"
-         required #selectedNumberInput="ngModel">
+    <!-- Input field for searching -->
+    <input matInput type="number" id="searchNumber" name="searchNumber" [(ngModel)]="searchNumber" required
+      #selectedNumberInput="ngModel">
 
-   <!-- Error message incase form input is invalid -->
-   <mat-error *ngIf="selectedNumberInput.invalid && selectedNumberInput.touched">
-     Please enter a number
-   </mat-error>
- </mat-form-field>
+    <!-- Error message incase form input is invalid -->
+    <mat-error *ngIf="selectedNumberInput.invalid && selectedNumberInput.touched">
+      Please enter a number
+    </mat-error>
+  </mat-form-field>
 
- <!-- Button for submitting form -->
- <button class="submit-button"
-     mat-raised-button
-     color="primary"
-     type="submit"
-     [disabled]="!searchForm.form.valid">
-     Search
- </button>
+  <!-- Button for submitting form -->
+  <button class="submit-button" mat-raised-button color="primary" type="submit" [disabled]="!searchForm.form.valid">
+    Search
+  </button>
 </form>

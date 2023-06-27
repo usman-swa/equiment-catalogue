@@ -20,7 +20,6 @@ export class FrontpageComponent {
     this.searchService.searchByLimit(this.searchNumber).subscribe(
       (result: Equipment[]) => {
         this.dataSource.data = result;
-        console.log(this.dataSource.data )
       },
       (error: any) => console.log('Error:', error)
     );

@@ -13,15 +13,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSortModule } from '@angular/material/sort';
-import { ListEquipmentsComponent } from './equipment';
-import { FrontpageComponent } from './frontpage';
 import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FrontpageComponent,
-    ListEquipmentsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,15 +25,6 @@ import { MatSelectModule } from '@angular/material/select';
     AppRoutingModule,
     CoreModule,
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatTableModule,
-    MatSortModule,
-    MatProgressSpinnerModule,
-    MatInputModule,
-    MatPaginatorModule,
-    MatFormFieldModule,
-    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

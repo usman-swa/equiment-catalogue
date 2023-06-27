@@ -1,42 +1,7 @@
 <div class="equipment-page">
-  <div class="add-equipment-form">
-    <h2>Add New Equipment</h2>
-
-    <form [formGroup]="equipmentForm" (ngSubmit)="onSubmit()" class="my-form">
-      <mat-form-field appearance="outline">
-        <mat-label>Number</mat-label>
-        <input matInput formControlName="number">
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="address">
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>Start date</mat-label>
-        <input matInput formControlName="contractStartDate">
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>End date</mat-label>
-        <input matInput formControlName="contractEndDate">
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>Status</mat-label>
-        <mat-select formControlName="status">
-          <ng-container *ngFor="let status of StatusEnumValues">
-            <mat-option [value]="status">{{ status }}</mat-option>
-          </ng-container>
-        </mat-select>
-      </mat-form-field>
-
-      <button mat-raised-button color="primary" type="submit" [disabled]="equipmentForm.invalid || isLoading">
-        {{ isLoading ? 'Saving...' : 'Save' }}
-      </button>
-    </form>
-  </div>
+  <button mat-raised-button color="primary">
+    <a mat-button [routerLink]="['/equipment/new']">Add new</a>
+  </button>
   <!-- Table for displaying search results -->
   <div class="table-container">
     <h2>Search Results</h2>
