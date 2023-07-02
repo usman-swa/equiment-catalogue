@@ -29,7 +29,6 @@ export class FrontpageComponent {
   }
 
   onPageChange(event: PageEvent) {
-    console.log(event.pageSize)
     const startIndex = event.pageIndex * event.pageSize;
     const endIndex = startIndex + event.pageSize;
 
