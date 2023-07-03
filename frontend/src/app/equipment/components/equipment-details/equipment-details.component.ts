@@ -32,7 +32,6 @@ export class EquipmentDetailsComponent implements OnInit {
     ).subscribe(equipment => {
       if (equipment) {
         this.dataSource.data = [equipment];
-        console.log(this.dataSource.data);
       } else {
         console.warn('No equipment found!');
       }
