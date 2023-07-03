@@ -1,25 +1,27 @@
-<button mat-raised-button color="secondary">
-  <a mat-button [routerLink]="['/']">
-    <span class="mat-button-wrapper">Back to list view</span>
-  </a>
-</button>
-<h2>Equipment details</h2>
-<mat-table [dataSource]="dataSource">
-  <ng-container matColumnDef="number">
-    <mat-header-cell *matHeaderCellDef> Number </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.number}} </mat-cell>
-  </ng-container>
+<div class="details-page">
+  <button mat-raised-button color="secondary">
+    <a mat-button [routerLink]="['/']">
+      <span class="mat-button-wrapper">Back to list view</span>
+    </a>
+  </button>
+  <h2>Equipment details</h2>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="number">
+      <mat-header-cell *matHeaderCellDef> Number </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.number}} </mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="status">
-    <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.status}} </mat-cell>
-  </ng-container>
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.status}} </mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="address">
-    <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.address}} </mat-cell>
-  </ng-container>
+    <ng-container matColumnDef="address">
+      <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.address}} </mat-cell>
+    </ng-container>
 
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-</mat-table>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>
