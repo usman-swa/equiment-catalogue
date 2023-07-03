@@ -14,6 +14,7 @@ import { CoreModule } from '../core/core.module';
 import { MatButtonModule } from '@angular/material/button';
 import { AddNewEquipmentComponent, ListEquipmentsComponent } from '../equipment';
 import { FrontpageComponent } from './components';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
     imports: [FrontpageRouting,
@@ -30,7 +31,9 @@ import { FrontpageComponent } from './components';
       MatInputModule,
       MatPaginatorModule,
       MatFormFieldModule,
-      MatSelectModule],
+      MatSelectModule,
+      MatIconModule
+    ],
     declarations: [FrontpageComponent, ListEquipmentsComponent, AddNewEquipmentComponent],
     exports: [FrontpageComponent, ListEquipmentsComponent, AddNewEquipmentComponent],
 })

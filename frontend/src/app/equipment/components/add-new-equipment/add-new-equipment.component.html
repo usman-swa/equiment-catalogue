@@ -1,4 +1,9 @@
 <div class="add-equipment-form">
+  <button mat-raised-button color="secondary">
+    <a mat-button [routerLink]="['/equipment']">
+      <span class="mat-button-wrapper">Back to list view</span>
+    </a>
+  </button>
   <h2>Add New Equipment</h2>
 
   <form [formGroup]="equipmentForm" (ngSubmit)="onSubmit()" class="my-form">
@@ -35,7 +40,4 @@
       {{ isLoading ? 'Saving...' : 'Save' }}
     </button>
   </form>
-  <button mat-raised-button color="secondary">
-    <a mat-button [routerLink]="['/equipment']">Back to list view</a>
-  </button>
 </div>
