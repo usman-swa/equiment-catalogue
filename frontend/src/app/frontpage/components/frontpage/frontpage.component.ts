@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { ActivatedRoute, Router } from '@angular/router';
 import { SearchService } from 'src/app/core/services';
 import { Equipment } from 'src/app/core/models';
 
@@ -16,7 +15,7 @@ export class FrontpageComponent {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private searchService: SearchService, private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(private searchService: SearchService) {}
 
   ngOnInit() {
     this.searchService.searchByLimit(this.searchNumber).subscribe(

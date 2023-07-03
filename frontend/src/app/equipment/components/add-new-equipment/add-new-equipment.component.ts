@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Equipment, Status } from 'src/app/core/models';
 import { SearchService } from 'src/app/core/services';
 
@@ -14,7 +15,7 @@ export class AddNewEquipmentComponent implements OnInit {
   equipmentForm!: FormGroup;
   isLoading = false;
 
-  constructor(private formBuilder: FormBuilder, private searchService: SearchService) { }
+  constructor(private formBuilder: FormBuilder, private searchService: SearchService, private router: Router) { }
 
   onSubmit(): void {
     if (this.equipmentForm.invalid) { return; }
@@ -34,6 +35,7 @@ export class AddNewEquipmentComponent implements OnInit {
       )
       .subscribe(() => {
         this.isLoading = false;
+        this.router.navigate(['/'])
       });
   }
 
